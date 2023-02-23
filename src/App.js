@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+// ... previous imports stay unchanged 
+
+import Navbar from "./components/Navbar";      // <== IMPORT
+import HomePage from "./pages/HomePage";       // <== IMPORT
+import AboutPage from "./pages/AboutPage";     // <== IMPORT
+import ProjectsPage from "./pages/ProjectsPage";   // <== IMPORT
+import ErrorPage from "./pages/ErrorPage";         // <== IMPORT
+import HomePageWithNavigate from "./pages/HomePageWithNavigate";
+
+import { Routes, Route } from "react-router-dom";  // <== IMPORT
+
+import projectsData from "./projects-data.json"; 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      
+      {/*   Add <Route /> components between <Routes> and </Routes>   */} 
+      <Routes>
+        {/* <Route path="/" element={<HomePage />} />  */}
+        <Route path="/" element={<HomePageWithNavigate />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route 
+          path="/projects" 
+          element={ <ProjectsPage projects={projectsData} /> } 
+        />
+
+        <Route path="*" element={ <ErrorPage /> } />
+      </Routes>
+      
     </div>
   );
 }
 
 export default App;
+

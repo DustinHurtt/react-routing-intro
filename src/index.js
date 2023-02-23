@@ -4,12 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// index.js
+// ... previous imports stay unchanged
+
+import { BrowserRouter } from 'react-router-dom'; // <== IMPORT
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Next, wrap the <App /> with the <Router> and </Router> tags
+
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>                            
+      <App />
+    </BrowserRouter>                      
   </React.StrictMode>
 );
+
+reportWebVitals();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
