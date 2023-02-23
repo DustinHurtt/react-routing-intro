@@ -27,6 +27,13 @@ function Navbar() {
           Projects
         </NavLink>
 
+        <NavLink 
+          to="/example" 
+          className={({ isActive }) => isActive ? "selected" : ""}
+        >
+          Example
+        </NavLink>
+
         </ul>
       </nav>
     );
